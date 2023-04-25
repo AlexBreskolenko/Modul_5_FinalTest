@@ -49,7 +49,7 @@ class Program
 
         for (int i = 0; i < arrResult.Length; i++)
         {
-            Console.Write($"Введите имя {i + 1} питомца : ");
+            Console.Write($"{i + 1}. : ");
             string name = Console.ReadLine();
             arrResult[i] = name;
         }
@@ -60,6 +60,7 @@ class Program
     //Метод для вывода кортежа
     static void PrintTuple((string name, string lastName, int age, bool is_pet,string[] namePet, string[] nameColor) UserPrint)
     {
+        Console.WriteLine("---------------------------------------------------------------------------------------------------------");
         Console.Write($"Ваше имя : {UserPrint.name}");
         Console.Write($"Ваша фамилия : {UserPrint.lastName}");
         Console.Write($"Ваш возраст : {UserPrint.age}");
@@ -115,6 +116,7 @@ class Program
 
         Console.Write("Сколько у вас любимых цветов ? : ");
         int numColor = CheckNum();
+        Console.WriteLine("Введите ваши любимые цвета : ");
         User.nameColor = CreateArray(numColor);
 
         return User;
@@ -124,9 +126,8 @@ class Program
 
     static void Main(string[] args)
     {
-        Console.Write("Enter number : ");
-        int num = CheckNum();
-        Console.WriteLine($"Number = {num}");
+        (string name, string lastName, int age, bool is_pet,string[] namePet, string[] nameColor) anketa = EnterUser();
+        PrintTuple(anketa);
     }
 }
 
